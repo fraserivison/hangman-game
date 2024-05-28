@@ -2,6 +2,9 @@ import random
 
 print("Hi there, welcome to Hangman!")
 print("Guess wisely, every letter counts...")
+print("---------------------------------")
+player_name = input("Before we begin, what is your name?: ")
+print(f"Hi {player_name}, let's go!")
 
 wordDictionary = {
     "Animals": ["platypus", "meerkat", "kangaroo", "warthog", "lobster", "leopard", "goose"],
