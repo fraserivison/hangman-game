@@ -21,11 +21,12 @@ def hangman_game():
     while True:
         start_game = input("Do you want to play Hangman? (yes/no): ").strip().lower()
         if start_game == 'yes':
-            print("Great! Let's start the game.")
+            print("Great! Let's start the game...")
             # Add code to start the Hangman game here
             break  # Exit the loop to continue with the game
         elif start_game == 'no':
             print("Alright, let's start over.")
+            print("---------------------------------")
             return hangman_game()  # Restart the function to begin again
         else:
             print("Please enter 'yes' or 'no'.")
@@ -43,5 +44,8 @@ def get_random_word(category):
     Select a random word from specified category
     """
     return random.choice(word_dict[category])
+
+for x in get_random_word:
+    print("_", end=" ")
 
 
