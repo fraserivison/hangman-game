@@ -29,7 +29,7 @@ def hangman_game():
             print("---------------------------------")
             return hangman_game()  # Restart the function to begin again
         else:
-            print("Please enter 'yes' or 'no'.")
+            print("Please enter 'yes' or 'no'.") 
 # Call the hangman_game function to start the process
 hangman_game()
 
@@ -43,9 +43,55 @@ def get_random_word(category):
     """
     Select a random word from specified category
     """
-    return random.choice(word_dict[category])
+    return random.choice(wordDictionary[category])
 
-for x in get_random_word:
+# code for the 'print_hangman fuction' below from https://github.com/ShaunHalverson/PythonHangman/blob/main/main.py
+selected_word = get_random_word(random.choice(list(wordDictionary.keys())))
+for _ in selected_word:
     print("_", end=" ")
 
+def print_hangman(wrong):
+  if(wrong == 0):
+    print("\n+---+")
+    print("    |")
+    print("    |")
+    print("    |")
+    print("   ===")
+  elif(wrong == 1): 
+    print("\n+---+")
+    print("O   |")
+    print("    |")
+    print("    |")
+    print("   ===")
+  elif(wrong == 2):
+    print("\n+---+")
+    print("O   |")
+    print("|   |")
+    print("    |")
+    print("   ===")
+  elif(wrong == 3):
+    print("\n+---+")
+    print(" O  |")
+    print("/|  |")
+    print("    |")
+    print("   ===")
+  elif(wrong == 4):
+    print("\n+---+")
+    print(" O  |")
+    print("/|\ |")
+    print("    |")
+    print("   ===")
+  elif(wrong == 5):
+    print("\n+---+")
+    print(" O  |")
+    print("/|\ |")
+    print("/   |")
+    print("   ===")
+  elif(wrong == 6):
+    print("\n+---+")
+    print(" O   |")
+    print("/|\  |")
+    print("/ \  |")
+    print("    ===")
 
+print_hangman(0)
