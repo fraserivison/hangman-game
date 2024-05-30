@@ -97,6 +97,11 @@ def hangman_game():
         if start_game == 'yes':
             print("Great! Let's start the game...")
 
+            # Select a random category and word
+            chosen_category = random.choice(list(wordDictionary.keys()))
+            selected_word = get_random_word(chosen_category)
+            print(f"The category is: {chosen_category}")
+
             # Select a random word and display underscores for each letter
             selected_word = get_random_word(random.choice(list(wordDictionary.keys())))
             guessed_letters = set()  # Track guessed letters
