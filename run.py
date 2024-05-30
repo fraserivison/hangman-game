@@ -1,65 +1,13 @@
 import random
-
-# Dictionary containing word categories
-wordDictionary = {
-    "Animals": ["platypus", "meerkat", "kangaroo", "warthog", "lobster", "leopard", "goose"],
-    "Countries": ["mexico", "nepal", "greenland", "denmark", "slovenia", "scotland", "liechtenstein"],
-    "Food": ["banana", "pickles", "spaghetti", "cheesecake", "olives", "yoghurt", ]
-}
+from constants import print_hangman, WORD_DICTIONARY
 
 # Function to select a random word from a specified category
 def get_random_word(category):
     """
     Select a random word from specified category
     """
-    return random.choice(wordDictionary[category])
+    return random.choice(WORD_DICTIONARY[category])
 
-# Function to print the hangman based on the number of wrong guesses
-def print_hangman(wrong):
-  if(wrong == 0):
-    print("\n+---+")
-    print("    |")
-    print("    |")
-    print("    |")
-    print("   ===")
-  elif(wrong == 1): 
-    print("\n+---+")
-    print("O   |")
-    print("    |")
-    print("    |")
-    print("   ===")
-  elif(wrong == 2):
-    print("\n+---+")
-    print("O   |")
-    print("|   |")
-    print("    |")
-    print("   ===")
-  elif(wrong == 3):
-    print("\n+---+")
-    print(" O  |")
-    print("/|  |")
-    print("    |")
-    print("   ===")
-  elif(wrong == 4):
-    print("\n+---+")
-    print(" O  |")
-    print("/|\ |")
-    print("    |")
-    print("   ===")
-  elif(wrong == 5):
-    print("\n+---+")
-    print(" O  |")
-    print("/|\ |")
-    print("/   |")
-    print("   ===")
-  elif(wrong == 6):
-    print("\n+---+")
-    print(" O   |")
-    print("/|\  |")
-    print("/ \  |")
-    print("    ===")
-    # Implementation of print_hangman function...
-    pass
 
 # Function to prompt the player to input a letter
 def get_player_input():
@@ -73,13 +21,31 @@ def get_player_input():
         else:
             return guess
 
-# Function to start the hangman game
-def hangman_game():
+
+def show_welcome_msg():
     print("Hi there, welcome to Hangman!")
     print("Guess wisely, every letter counts...")
     print("---------------------------------")
+
+def take_username_input():
+    #Add validations here like name has only A-Za-z and it it not empty;
+    try:
+        player_name = input("Before we begin, what is your name?: ")
+        if player_name == "":
+            raise Exception("Name cannot be empty")
+        elif player_name.isalpha() == False:
+            raise Exception("Name can only contain alphabets")
+        else:
+            return player_name
+    except Exception as e:
+        print(e)
+        return take_username_input()
+    
     player_name = input("Before we begin, what is your name?: ")
-    print(f"Hi {player_name}, the rules are as follows:")
+    return player_name
+
+def show_rules(username):
+    print(f"Hi {username}, the rules are as follows:")
     print("""
     1. The computer picks a word.
     2. You see blank spaces for each letter in the word.
@@ -91,19 +57,18 @@ def hangman_game():
     8. You lose if the drawing is completed before you guess the word.
     """)
     print("---------------------------------")
-    
+
+def start_game():
     while True:
         start_game = input("Do you want to play Hangman? (yes/no): ").strip().lower()
         if start_game == 'yes':
             print("Great! Let's start the game...")
 
             # Select a random category and word
-            chosen_category = random.choice(list(wordDictionary.keys()))
+            chosen_category = random.choice(list(WORD_DICTIONARY.keys()))
             selected_word = get_random_word(chosen_category)
             print(f"The category is: {chosen_category}")
 
-            # Select a random word and display underscores for each letter
-            selected_word = get_random_word(random.choice(list(wordDictionary.keys())))
             guessed_letters = set()  # Track guessed letters
             attempts = 0  # Track incorrect attempts
             display_word = ['_'] * len(selected_word)  # Initialize display word
@@ -141,6 +106,13 @@ def hangman_game():
         else:
             print("Please enter 'yes' or 'no'.") 
 
+
+# Function to start the hangman game
+def hangman_game():
+    show_welcome_msg()
+    player_name = take_username_input()
+    show_rules(player_name)
+    start_game()
+  
 # Call the hangman_game function to start the process
 hangman_game()
-
