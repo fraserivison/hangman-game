@@ -99,16 +99,34 @@ def hangman_game():
 
             # Select a random word and display underscores for each letter
             selected_word = get_random_word(random.choice(list(wordDictionary.keys())))
-            for _ in selected_word:
-                print("_", end=" ")
+            guessed_letters = set()  # Track guessed letters
+            attempts = 0  # Track incorrect attempts
+            display_word = ['_'] * len(selected_word)  # Initialize display word
 
-            # Display initial hangman
-            print_hangman(0)
+            while attempts < 6:
+                print(" ".join(display_word))  # Display current progress
+                print_hangman(attempts)  # Display hangman
 
-            # Call function to allow player to input a letter
-            get_player_input()
+                # Prompt player to guess a letter
+                guess = get_player_input()
+                guessed_letters.add(guess)
 
-            # Add code for the main game logic here
+                if guess in selected_word:
+                    # Update display word with correctly guessed letter
+                    for i, letter in enumerate(selected_word):
+                        if letter == guess:
+                            display_word[i] = guess
+                    print("Correct guess!")
+                else:
+                    print("Incorrect guess!")
+                    attempts += 1
+
+                if ''.join(display_word) == selected_word:
+                    print("Congratulations! You guessed the word:", selected_word)
+                    break
+
+            if attempts == 6:
+                print("Game Over! The word was:", selected_word)
 
             break  # Exit the loop to continue with the game
         elif start_game == 'no':
