@@ -1,14 +1,12 @@
 import random
 from constants import print_hangman, WORD_DICTIONARY
 
-# Function to select a random word from a specified category
 def get_random_word(category):
     """
     Select a random word from a specified category.
     """
     return random.choice(WORD_DICTIONARY[category])
 
-# Function to prompt the player to input a letter
 def get_player_input():
     """
     Prompt the player to input a letter.
@@ -56,31 +54,28 @@ def play_game():
     """
     Play a single round of Hangman.
     """
-    # Select a random category and word
     chosen_category = random.choice(list(WORD_DICTIONARY.keys()))
     selected_word = get_random_word(chosen_category)
     print(f"The category is: {chosen_category}")
 
-    guessed_letters = set()  # Track guessed letters
-    attempts = 0  # Track incorrect attempts
-    display_word = ['_'] * len(selected_word)  # Initialize display word
+    guessed_letters = set()
+    attempts = 0
+    display_word = ['_'] * len(selected_word)
 
     while attempts < 6:
-        print(" ".join(display_word))  # Display current progress
-        print_hangman(attempts)  # Display hangman
+        print(" ".join(display_word))
+        print_hangman(attempts)
 
-        # Prompt player to guess a letter
         guess = get_player_input()
         guessed_letters.add(guess)
 
         if guess in selected_word:
-            # Update display word with correctly guessed letter
             for i, letter in enumerate(selected_word):
                 if letter == guess:
                     display_word[i] = guess
-            print("Correct guess!")
+            print("Correct guess :)")
         else:
-            print("Incorrect guess!")
+            print("Incorrect guess :(")
             attempts += 1
 
         if ''.join(display_word) == selected_word:
@@ -109,23 +104,20 @@ def start_game():
     if start_game == 'yes':
         print("Great! Let's start the game...")
         while True:
-            play_game()  # Call the function to play the game
+            play_game()
             play_again = get_yes_no_input("Do you want to play again? (yes/no): ")
             if play_again != 'yes':
                 print("Thank you for playing Hangman!")
                 break
     else:
         print("Thank you for playing Hangman!")
-        return  # Exit the function to end the game completely
+        return
 
-# Function to start the hangman game
 def hangman_game():
     show_welcome_msg()
     player_name = take_username_input()
     show_rules(player_name)
     start_game()
 
-# Call the hangman_game function to start the process
-hangman_game()
-
-
+if __name__ == "__main__":
+    hangman_game()
