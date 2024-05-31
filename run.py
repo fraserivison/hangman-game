@@ -4,8 +4,10 @@ from colorama import Fore, Style, init
 
 init(autoreset=True)
 
+
 def get_random_word(category):
     return random.choice(WORD_DICTIONARY[category])
+
 
 def get_player_input():
     while True:
@@ -15,10 +17,12 @@ def get_player_input():
         else:
             return guess
 
+
 def show_welcome_msg():
     print(Fore.GREEN + "Hi there, welcome to Hangman!")
     print("Guess wisely, every letter counts...")
     print("---------------------------------")
+
 
 def take_username_input():
     while True:
@@ -29,6 +33,7 @@ def take_username_input():
             print(Fore.RED + "*** Name can only contain letters A-Z ***")
         else:
             return player_name
+
 
 def show_rules(username):
     print(f"Hi {username}, the rules are as follows:")
@@ -44,6 +49,7 @@ def show_rules(username):
     8. You lose if the drawing is completed before you guess the word.
     """)
     print("---------------------------------")
+
 
 def play_game():
     chosen_category = random.choice(list(WORD_DICTIONARY.keys()))
@@ -71,11 +77,12 @@ def play_game():
             attempts += 1
 
         if ''.join(display_word) == selected_word:
-            print(Fore.GREEN + "Congratulations! You guessed the word:", selected_word)
+            print(Fore.GREEN + "Congratulations! The word was:", selected_word)
             break
 
     if attempts == 6:
         print(Fore.RED + "Game Over! The word was:", selected_word)
+
 
 def get_yes_no_input(prompt):
     while True:
@@ -85,6 +92,7 @@ def get_yes_no_input(prompt):
         else:
             print(Fore.RED + "*** Please enter 'yes' or 'no' ***")
 
+
 def start_game():
     start_game = get_yes_no_input("Do you want to play Hangman? (yes/no): ")
     if start_game == 'yes':
@@ -92,7 +100,9 @@ def start_game():
         print("Great! Let's start the game...")
         while True:
             play_game()
-            play_again = get_yes_no_input("Do you want to play again? (yes/no): ")
+            play_again = get_yes_no_input(
+                "Do you want to play again? (yes/no): "
+            )
             if play_again != 'yes':
                 print("---------------------------------")
                 print("Thank you for playing Hangman!")
@@ -101,11 +111,14 @@ def start_game():
         print("Thank you for playing Hangman!")
         return
 
+
 def hangman_game():
     show_welcome_msg()
     player_name = take_username_input()
     show_rules(player_name)
     start_game()
 
+
 if __name__ == "__main__":
     hangman_game()
+    
