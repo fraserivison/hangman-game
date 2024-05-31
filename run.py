@@ -18,7 +18,7 @@ def get_player_input():
     """
     while True:
         try:
-            guess = input("Guess a letter: ").strip().lower()
+            guess = input("Guess a letter:\n").strip().lower()
             if len(guess) != 1 or not guess.isalpha():
                 raise ValueError("*** Please enter a single letter ***")
             return guess
@@ -40,7 +40,7 @@ def take_username_input():
     Prompt the player to enter their name and validate it.
     """
     while True:
-        player_name = input("Before we begin, what is your name?: ")
+        player_name = input("Before we begin, what is your name?:\n")
         if player_name == "":
             print(Fore.RED + "*** Name cannot be empty ***")
         elif not player_name.isalpha():
@@ -121,14 +121,14 @@ def start_game():
     """
     Start the game and manage replaying.
     """
-    start_game = get_yes_no_input("Do you want to play Hangman? (yes/no): ")
+    start_game = get_yes_no_input("Do you want to play Hangman? (yes/no):\n")
     if start_game == 'yes':
         print("---------------------------------")
         print("Great! Let's start the game...")
         while True:
             play_game()
             play_again = get_yes_no_input(
-                "Do you want to play again? (yes/no): "
+                "Do you want to play again? (yes/no):\n"
             )
             if play_again != 'yes':
                 print("---------------------------------")

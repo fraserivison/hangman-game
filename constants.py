@@ -68,5 +68,4 @@ WORD_DICTIONARY = {
         "yoghurt",
     ]
 }
-}
 
