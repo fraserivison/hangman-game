@@ -1,48 +1,34 @@
 import random
 from constants import print_hangman, WORD_DICTIONARY
+from colorama import Fore, Style, init
 
-class InvalidInputError(Exception):
-    """Custom exception for invalid input."""
-    pass
+init(autoreset=True)
 
 def get_random_word(category):
-    """
-    Select a random word from a specified category.
-    """
     return random.choice(WORD_DICTIONARY[category])
 
 def get_player_input():
-    """
-    Prompt the player to input a letter.
-    """
     while True:
-        try:
-            guess = input("Guess a letter: ").strip().lower()
-            if len(guess) != 1 or not guess.isalpha():
-                raise InvalidInputError("*** Please enter a single letter ***")
+        guess = input("Guess a letter: ").strip().lower()
+        if len(guess) != 1 or not guess.isalpha():
+            print(Fore.RED + "*** Please enter a single letter ***")
+        else:
             return guess
-        except InvalidInputError as e:
-            print(e)
 
 def show_welcome_msg():
-    print("Hi there, welcome to Hangman!")
+    print(Fore.GREEN + "Hi there, welcome to Hangman!")
     print("Guess wisely, every letter counts...")
     print("---------------------------------")
 
 def take_username_input():
-    """
-    Prompt the player to input their name and validate it.
-    """
     while True:
-        try:
-            player_name = input("Before we begin, what is your name?: ")
-            if player_name == "":
-                raise InvalidInputError("*** Name cannot be empty ***")
-            elif not player_name.isalpha():
-                raise InvalidInputError("*** Name can only contain letters A-Z ***")
+        player_name = input("Before we begin, what is your name?: ")
+        if player_name == "":
+            print(Fore.RED + "*** Name cannot be empty ***")
+        elif not player_name.isalpha():
+            print(Fore.RED + "*** Name can only contain letters A-Z ***")
+        else:
             return player_name
-        except InvalidInputError as e:
-            print(e)
 
 def show_rules(username):
     print(f"Hi {username}, the rules are as follows:")
@@ -59,12 +45,9 @@ def show_rules(username):
     print("---------------------------------")
 
 def play_game():
-    """
-    Play a single round of Hangman.
-    """
     chosen_category = random.choice(list(WORD_DICTIONARY.keys()))
     selected_word = get_random_word(chosen_category)
-    print(f"The category is: {chosen_category}\n")
+    print(f"The category is: {chosen_category}")
 
     guessed_letters = set()
     attempts = 0
@@ -81,38 +64,30 @@ def play_game():
             for i, letter in enumerate(selected_word):
                 if letter == guess:
                     display_word[i] = guess
-            print("Correct guess :)\n")
+            print(Fore.GREEN + "Correct guess :)")
         else:
-            print("Incorrect guess :(\n")
+            print(Fore.RED + "Incorrect guess :(")
             attempts += 1
 
         if ''.join(display_word) == selected_word:
-            print("Congratulations! You guessed the word:", selected_word)
+            print(Fore.GREEN + "Congratulations! You guessed the word:", selected_word)
             break
 
     if attempts == 6:
-        print("Game Over! The word was:", selected_word)
+        print(Fore.RED + "Game Over! The word was:", selected_word)
 
 def get_yes_no_input(prompt):
-    """
-    Prompt the user for a 'yes' or 'no' response, re-prompting as necessary.
-    """
     while True:
-        try:
-            response = input(prompt).strip().lower()
-            if response not in ['yes', 'no']:
-                raise InvalidInputError("*** Please enter 'yes' or 'no' ***")
+        response = input(prompt).strip().lower()
+        if response in ['yes', 'no']:
             return response
-        except InvalidInputError as e:
-            print(e)
+        else:
+            print(Fore.RED + "*** Please enter 'yes' or 'no' ***")
 
 def start_game():
-    """
-    Handle the starting and restarting of the game.
-    """
     start_game = get_yes_no_input("Do you want to play Hangman? (yes/no): ")
     if start_game == 'yes':
-        print("Great! Let's start the game...\n")
+        print("Great! Let's start the game...")
         while True:
             play_game()
             play_again = get_yes_no_input("Do you want to play again? (yes/no): ")
