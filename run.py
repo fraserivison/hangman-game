@@ -15,11 +15,14 @@ def get_player_input():
     Prompt the player to input a single letter and validate it.
     """
     while True:
-        guess = input("Guess a letter: ").strip().lower()
-        if len(guess) != 1 or not guess.isalpha():
-            print(Fore.RED + "*** Please enter a single letter ***")
-        else:
+        try:
+            guess = input("Guess a letter: ").strip().lower()
+            if len(guess) != 1 or not guess.isalpha():
+                raise ValueError("*** Please enter a single letter ***")
             return guess
+        except ValueError as ve:
+            print(Fore.RED + str(ve))
+            
 
 def show_welcome_msg():
     """
