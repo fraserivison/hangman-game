@@ -32,6 +32,7 @@ def take_username_input():
 
 def show_rules(username):
     print(f"Hi {username}, the rules are as follows:")
+    print("---------------------------------")
     print("""
     1. The computer picks a word.
     2. You see blank spaces for each letter in the word.
@@ -87,11 +88,13 @@ def get_yes_no_input(prompt):
 def start_game():
     start_game = get_yes_no_input("Do you want to play Hangman? (yes/no): ")
     if start_game == 'yes':
+        print("---------------------------------")
         print("Great! Let's start the game...")
         while True:
             play_game()
             play_again = get_yes_no_input("Do you want to play again? (yes/no): ")
             if play_again != 'yes':
+                print("---------------------------------")
                 print("Thank you for playing Hangman!")
                 break
     else:

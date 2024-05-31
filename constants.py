@@ -1,4 +1,5 @@
 # Function to print the hangman based on the number of wrong guesses
+# code taken from (https://github.com/ShaunHalverson/PythonHangman/blob/main/main.py)
 def print_hangman(wrong):
     if(wrong == 0):
         print("")

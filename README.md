@@ -59,7 +59,9 @@ Lucid flow
 
 ## Credits
 
-Hangman Design (https://github.com/ShaunHalverson/PythonHangman/blob/main/main.py)
+[HangmanDesign](https://github.com/ShaunHalverson/PythonHangman/blob/main/main.py)
+[Colorama](https://www.geeksforgeeks.org/print-colors-python-terminal/)
+[README.md contents layout](https://github.com/fraserivison/astronaut-quiz/blob/main/README.md)
 
 
 ## End.
