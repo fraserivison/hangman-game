@@ -1,61 +1,49 @@
 # Hangman Game
 
-## Overview
+## How to play
 
 
 ![Viewports](md_images/viewports.png)
 
 # Table of contents
-- [User Experience (UX)](#ux)
-    - [External User’s Goal](#external-users-goal)
-    - [Site Owner's Goal](#site-owners-goal)
-    - [Structure](#structure)
-    - [Surface](#surface)
+- [Structure](#structure)
+- [Development Rational](#dev-ration)
 - [Features](#features)
-- [Features Left to Implement](#features-left-to-implement)
-- [Technologies Used](#technologies-used)
-- [Testing](#testing)
+    - [Existing Features](existing-features)
+    - [Future Features](future-features)
+- [Data Model](#data-model)
+- [Testing Procedures and Results](#testing)
     - [Validator Testing](#validator-testing)
-    - [Performance](#performance)
-    - [Bugs](#bugs)
-- [Deployment](#deployment)
+- [Bugs](#bugs)
+    - [Solved Bugs](#solved-bugs)
+    - [Remaining Bugs](#remaining-bugs)
+- [Deployment Instructions](#deployment)
 - [Credits](#credits)
-
-# User Experience (UX)
-
-## External User’s Goal
-
-
-## Site Owner's Goal
-
 
 ## Structure
 Lucid flow
 
-
-
+## Development Rational
 
 ## Features
 
+### Existing Features
 
-## Technologies Used
+### Future features
 
-### Python
+## Data Model
 
-## Testing
+## Testing Procedures and Results
 
 ### Validator Testing
 
-### Python:
-
-## Performance
-
-
 ## Bugs
 
+### Solved Bugs
 
-## Deployment
+### Remaining Bugs
 
+## Deployment Instructions
 
 ## Credits
 
