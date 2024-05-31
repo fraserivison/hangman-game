@@ -34,22 +34,22 @@ def print_hangman(wrong):
         print("")
         print("+---+")
         print(" O  |")
-        print("/|\\|")
+        print("/|\\ |")
         print("    |")
         print("   ===")
     elif wrong == 5:
         print("")
         print("+---+")
         print(" O  |")
-        print("/|\\|")
+        print("/|\\ |")
         print("/   |")
         print("   ===")
     elif wrong == 6:
         print("")
         print("+---+")
         print(" O   |")
-        print("/|\\ |")
-        print("/ \\ |")
+        print("/|\\  |")
+        print("/ \\  |")
         print("    ===")
 
 
