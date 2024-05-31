@@ -16,7 +16,7 @@ def get_player_input():
     while True:
         guess = input("Guess a letter: ").strip().lower()
         if len(guess) != 1 or not guess.isalpha():
-            print("Please enter a single letter.")
+            print("*** Please enter a single letter ***")
         else:
             return guess
 
@@ -32,9 +32,9 @@ def take_username_input():
     while True:
         player_name = input("Before we begin, what is your name?: ")
         if player_name == "":
-            print("Name cannot be empty.")
+            print("*** Name cannot be empty ***")
         elif not player_name.isalpha():
-            print("Name can only contain letters A-Z.")
+            print("*** Name can only contain letters A-Z ***")
         else:
             return player_name
 
@@ -99,7 +99,7 @@ def get_yes_no_input(prompt):
         if response in ['yes', 'no']:
             return response
         else:
-            print("Please enter 'yes' or 'no'.")
+            print("*** Please enter 'yes' or 'no' ***")
 
 def start_game():
     """
