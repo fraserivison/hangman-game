@@ -78,6 +78,7 @@ def play_game():
 
     guessed_letters = set()
     attempts = 0
+    max_attempts= 6
     display_word = ['_'] * len(selected_word)
 
     while attempts < 6:
@@ -95,6 +96,9 @@ def play_game():
         else:
             print(Fore.RED + "Incorrect guess :(")
             attempts += 1
+
+        remaining_attempts = max_attempts - attempts
+        print(f"Number of guesses remaining: {remaining_attempts}")
 
         if ''.join(display_word) == selected_word:
             print(Fore.GREEN + "Congratulations! You guessed the word:")
