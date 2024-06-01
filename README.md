@@ -40,6 +40,8 @@ Using Lucidchart, the steps to play the game were clearly laid out, making the d
 
 ## Development Rational
 
+The Hangman game was developed to provide an engaging and interactive way to practice Python programming concepts such as loops, conditionals, and user input. It also demonstrates how to create a simple command-line interface application.
+
 ## Features
 
 ### Existing Features
@@ -90,8 +92,7 @@ During development, various test scenarios were conducted, including inputting i
 
 ### Validator Testing
 
-- The code has been checked using PEP 8 standards to ensure proper formatting and style.
-- External validators were used to check the README.md for consistent and effective markdown formatting.
+- The code has been checked using PEP8 standards to ensure proper formatting and style- any issues that were found were fixed.
 
 ![Testing-1](md_images/pep8-1.png)
 ![Testing-2](md_images/pep8-2.png)
