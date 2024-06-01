@@ -13,20 +13,21 @@ Hangman is a classic word-guessing game where players try to guess a hidden word
 
 ![Viewports](md_images/viewports.png)
 
-# Table of contents
+# Table of Contents
 - [Structure](#structure)
-- [Development Rational](#dev-ration)
+- [Development Rational](#development-rational)
 - [Features](#features)
-    - [Existing Features](existing-features)
-    - [Future Features](future-features)
+    - [Existing Features](#existing-features)
+    - [Future Features](#future-features)
 - [Data Model](#data-model)
-- [Testing Procedures and Results](#testing)
+- [Testing Procedures and Results](#testing-procedures-and-results)
     - [Validator Testing](#validator-testing)
 - [Bugs](#bugs)
     - [Solved Bugs](#solved-bugs)
     - [Remaining Bugs](#remaining-bugs)
-- [Deployment Instructions](#deployment)
+- [Deployment Instructions](#deployment-instructions)
 - [Credits](#credits)
+
 
 ## Structure
 The project is structured as follows:
